@@ -20,4 +20,7 @@
     <string name="ou">OR</string>
     <string name="nvsurjumia">New on Jumia ?</string>
     <string name="creeruncompte">CREATE AN ACCOUNT</string>
+    <string name="back">back</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
