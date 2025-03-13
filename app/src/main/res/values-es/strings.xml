@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PowerHouse</string>
+    <string name="motdepasse">Contraseña</string>
+    <string name="mail">Correo</string>
+    <string name="prenom">Nombre</string>
+    <string name="numero">Número</string>
+    <string name="nomdefamille">Apellido</string>
+    <string name="creer">Crear</string>
+    <string name="connectezvous">Conéctate</string>
+    <string name="identifiezvous">Conéctate a</string>
+    <string name="mdpoublie">¿HA OLVIDADO SU CONTRASEÑA?</string>
+    <string name="connecfb">"Continuar con Facebook "</string>
+    <string name="ou">O</string>
+    <string name="nvsurjumia">¿Eres nuevo en Jumia?</string>
+    <string name="creeruncompte">CREAR UNA CUENTA</string>
+</resources>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PowerHouse</string>
+    <string-array name="phone_prefixes">
+        <item>+33</item> <!-- France -->
+        <item>+32</item> <!-- Belgique -->
+        <item>+1</item>  <!-- USA/Canada -->
+        <item>+237</item> <!-- Cameroun -->
+        <item>+225</item> <!-- Côte d'Ivoire -->
+    </string-array>
+    <string name="motdepasse">Password</string>
+    <string name="mail">Email</string>
+    <string name="prenom">Surname</string>
+    <string name="numero">Number</string>
+    <string name="nomdefamille">Name</string>
+    <string name="creer">Create</string>
+    <string name="connectezvous">Login</string>
+    <string name="identifiezvous">Identify Yourself</string>
+    <string name="mdpoublie">FORGOT YOUR PASSWORD ?</string>
+    <string name="connecfb">Login with Facebook</string>
+    <string name="ou">OR</string>
+    <string name="nvsurjumia">New on Jumia ?</string>
+    <string name="creeruncompte">CREATE AN ACCOUNT</string>
+</resources>
