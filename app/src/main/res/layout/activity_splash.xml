@@ -29,12 +29,12 @@
         tools:layout_editor_absoluteY="519dp" />
 
     <TextView
-        android:layout_width="113dp"
+        android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:fontFamily="sans-serif-black"
-        android:text="Made By Joshua"
+        android:text="Made By Joshua and Jiden"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="674dp" />
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="677dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
