@@ -40,4 +40,6 @@ dependencies {
     androidTestImplementation libs.espresso.core
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation libs.gson
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libs.ion
 }

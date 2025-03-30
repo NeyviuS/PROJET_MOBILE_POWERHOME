@@ -12,7 +12,7 @@ public class Habitat {
     public int id;
     public int floor;
     public double area;
-    public User user;
+    public String firstname, lastname;
     public List<Appliance> appliances;
 
     public Habitat() {

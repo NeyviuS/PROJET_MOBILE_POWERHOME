@@ -9,20 +9,10 @@
     android:weightSum="1"
     tools:context=".InscriptionsActivity">
 
-    <TextView
-        android:layout_width="match_parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Créer un compte"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_weight="0.1"
-        android:background="@color/black"
-        android:textColor="@color/white"
-        app:drawableStartCompat="@drawable/baseline_arrow_back_24"
-
-
-        />
+        android:name="com.example.powerhouse.Header"/>
 
 
     <TextView

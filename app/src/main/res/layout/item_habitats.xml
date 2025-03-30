@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/border">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="32sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/nbAppliances"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="équipements"
+                android:textSize="24sp"/>
+
+            <LinearLayout
+                android:paddingStart="16dp"
+                android:id="@+id/listAppliances"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="4sp"
+        android:background="@drawable/border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ETAGE"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:background="@color/orange"
+            android:id="@+id/floorNumber"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
