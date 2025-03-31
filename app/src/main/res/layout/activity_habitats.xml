@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".HabitatsActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".HabitatsActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <ListView
-        android:id="@+id/listHabitats"
+    <!-- Contenu principal -->
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:dividerHeight="16dp"
+        android:orientation="vertical">
 
-        android:divider="@color/white"/>
+        <!-- Toolbar pour le Drawer -->
 
-</LinearLayout>
+        <!-- Liste des habitats -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:title="@string/app_name"
+            app:navigationIcon="@drawable/baseline_menu_24"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <ListView
+            android:id="@+id/listHabitats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:dividerHeight="16dp"
+            android:divider="@color/white"/>
+    </LinearLayout>
+
+    <!-- Le menu du Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:menu="@menu/drawer_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

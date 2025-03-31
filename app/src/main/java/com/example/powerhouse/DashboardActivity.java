@@ -3,8 +3,10 @@ package com.example.powerhouse;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,18 +15,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.powerhouse.entities.Appliance;
 import com.example.powerhouse.entities.TimeSlot;
+import com.google.android.material.navigation.NavigationView;
 import com.koushikdutta.ion.Ion;
 
 import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
+
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
+
     private TimeSlotAdapter timeslotAdapter;
     private ApplianceAdapter applianceAdapter;
     private CalendarView calendar;
@@ -38,7 +48,6 @@ public class DashboardActivity extends AppCompatActivity {
 
     private static String URL_TIMESLOT = "http://192.168.1.84/powerhome/getTimeslotFromDay.php?date=";
     private static String URL_APPLIANCES = "http://192.168.1.84/powerhome/getAppliancesFromUserId.php?user_id=";
-
     private static String URL_FREE_APPLIANCES = "http://192.168.1.84/powerhome/getFreeAppliances.php";
 
     @Override
@@ -46,11 +55,40 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dashboard);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        // Configuration du Drawer et de la Toolbar
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Ajouter le bouton du menu hamburger
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        // Gestion des clics sur le menu du Drawer
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_home) {
+                Toast.makeText(this, "Accueil", Toast.LENGTH_SHORT).show();
+            } else if (id == R.id.nav_habitat) {
+                // Ouvrir l'activité Habitat
+                startActivity(new Intent(DashboardActivity.this, HabitatsActivity.class));
+            } else if (id == R.id.nav_apropos) {
+                // Ouvrir l'activité À Propos
+                startActivity(new Intent(DashboardActivity.this, AproposActivity.class));
+            }
+
+            // Fermer le drawer après un clic
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
         });
+
         calendar = findViewById(R.id.calendar);
         timeslotListView = findViewById(R.id.timeslot);
         appliancesListView = findViewById(R.id.list_appliance);
@@ -63,10 +101,9 @@ public class DashboardActivity extends AppCompatActivity {
         showFreeAppliances = findViewById(R.id.buttonShowFreeAppliances);
         imgShowFreeAppliances = findViewById(R.id.imgShowFreeAppliances);
         userName = findViewById(R.id.userName);
+
         SharedPreferences sp = getSharedPreferences("user_prefs", MODE_PRIVATE);
         userName.setText(sp.getString("firstname", "") + " " + sp.getString("lastname", ""));
-
-
 
         showFreeAppliances.setOnClickListener((v -> {
             freeAppliancesListView.setVisibility(isVisibleFreeAppliances ? GONE : VISIBLE);
@@ -78,10 +115,9 @@ public class DashboardActivity extends AppCompatActivity {
             appliancesListView.setVisibility(isVisibleAppliances ? GONE : VISIBLE);
             imgShowAppliances.setImageResource(isVisibleAppliances ? R.drawable.baseline_arrow_drop_up_24 : R.drawable.baseline_arrow_drop_down_24);
             isVisibleAppliances = !isVisibleAppliances;
-
         }));
-        showConsoGlobale.setOnClickListener((v -> {
 
+        showConsoGlobale.setOnClickListener((v -> {
             calendar.setVisibility(isVisibleConsoGlobale ? GONE : VISIBLE);
             timeslotListView.setVisibility(isVisibleConsoGlobale ? GONE : VISIBLE);
             imgShowConsoGlobale.setImageResource(isVisibleConsoGlobale ? R.drawable.baseline_arrow_drop_up_24 : R.drawable.baseline_arrow_drop_down_24);
@@ -92,8 +128,6 @@ public class DashboardActivity extends AppCompatActivity {
 
         fetchOwnAppliances();
         fetchFreeAppliances();
-
-
     }
 
     private void fetchOwnAppliances() {
@@ -132,10 +166,17 @@ public class DashboardActivity extends AppCompatActivity {
             }
 
             time_slot_list = TimeSlot.getListFromJson(result);
-
-
             timeslotAdapter = new TimeSlotAdapter(this, time_slot_list);
             timeslotListView.setAdapter(timeslotAdapter);
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
