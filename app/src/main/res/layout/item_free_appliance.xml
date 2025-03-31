@@ -55,8 +55,8 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
-            android:text="@string/supprimer"
-            android:textColor="#FF0000" />
+            android:text="@string/ajouter"
+            android:textColor="#2196F3" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,27 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="32px"
-    android:background="@color/vert"
-    android:id="@+id/main_layout">
+    android:layout_marginVertical="8dp"
+    android:orientation="horizontal"
+    android:background="@drawable/border"
+    android:padding="8dp">
+
     <TextView
-        android:text="XXhXX"
-        android:textColor="@color/white"
+        android:padding="5dp"
         android:id="@+id/time_slot_hour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-        android:textColor="@color/white"
-        android:text="X%"
+        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/taux_wattage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp">
+        <TextView
+            android:id="@+id/taux_wattage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/intent_reserver"
+            android:layout_marginStart="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/r_server"
+            android:textColor="#2196F3"/>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

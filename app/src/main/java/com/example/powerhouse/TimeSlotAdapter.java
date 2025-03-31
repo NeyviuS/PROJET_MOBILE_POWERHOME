@@ -2,6 +2,7 @@ package com.example.powerhouse;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class TimeSlotAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_time_slot, parent, false);
         }
-        ConstraintLayout view = convertView.findViewById(R.id.main_layout);
+        TextView redirect = convertView.findViewById(R.id.intent_reserver);
         TextView time_slot_creneau = convertView.findViewById(R.id.time_slot_hour);
         TextView taux = convertView.findViewById(R.id.taux_wattage);
 
@@ -56,14 +57,19 @@ public class TimeSlotAdapter extends BaseAdapter {
         String begin = time_slot.getBegin().toString().split(" ")[1].substring(0, 5);
         String end = time_slot.getEnd().toString().split(" ")[1].substring(0, 5);
 
+        redirect.setOnClickListener((v -> {
+            Bundle b = new Bundle();
+        }));
         time_slot_creneau.setText(begin + " - " + end);
-        taux.setText(Double.toString(time_slot.getTaux()));
+        taux.setText(Math.round(time_slot.getTaux()) + "%");
         if (time_slot.getTaux() < 100)
-            view.setBackgroundColor(Color.RED);
+            taux.setBackgroundColor(Color.RED);
         if (time_slot.getTaux() < 70)
-            view.setBackgroundColor(context.getResources().getColor(R.color.orange));
+            taux.setBackgroundColor(context.getResources().getColor(R.color.orange));
         if (time_slot.getTaux() < 30)
-            view.setBackgroundColor(Color.GREEN);
+            taux.setBackgroundColor(Color.GREEN);
+
+
 
         return convertView;
     }

@@ -41,5 +41,8 @@
     <string name="afficher_la_consommation_globale_de_la_r_sidence">Afficher la consommation globale de la résidence</string>
     <string name="afficher_vos_appareils_l_ctrom_nagers">Afficher vos appareils éléctroménagers</string>
     <string name="supprimer">Supprimer</string>
+    <string name="appareils_disponibles">Appareils disponibles</string>
+    <string name="ajouter">Ajouter</string>
     <string name="menu_habitat">habitat</string>
+    <string name="r_server">Réserver</string>
 </resources>

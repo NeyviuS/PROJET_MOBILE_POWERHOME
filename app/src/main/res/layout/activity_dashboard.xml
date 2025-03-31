@@ -25,11 +25,10 @@
             android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nom prenom"
             android:textSize="24sp" />
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -102,8 +101,36 @@
             <ListView
                 android:id="@+id/list_appliance"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible" />
+            <LinearLayout
+                android:id="@+id/buttonShowFreeAppliances"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/appareils_disponibles"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/imgShowFreeAppliances"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/baseline_arrow_drop_up_24"
+                    android:importantForAccessibility="no" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/list_free_appliances"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:visibility="visible" />
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 </LinearLayout>
