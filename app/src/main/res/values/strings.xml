@@ -21,7 +21,7 @@
     <string name="nvsurjumia">New on Jumia ?</string>
     <string name="creeruncompte">CREATE AN ACCOUNT</string>
     <string name="back">back</string>
-
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -33,4 +33,12 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_apropos">About</string>
+    <string name="bienvenue">Bienvenue</string>
+    <string name="consommation_globale">Consommation globale</string>
+    <string name="vos_appareils">Vos appareils</string>
+    <string name="consommation_400w">Consommation : 400W</string>
+    <string name="nom_appareil">Nom appareil</string>
+    <string name="afficher_la_consommation_globale_de_la_r_sidence">Afficher la consommation globale de la résidence</string>
+    <string name="afficher_vos_appareils_l_ctrom_nagers">Afficher vos appareils éléctroménagers</string>
+    <string name="supprimer">Supprimer</string>
 </resources>

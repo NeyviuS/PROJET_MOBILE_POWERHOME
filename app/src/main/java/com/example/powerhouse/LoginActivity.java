@@ -11,12 +11,6 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import com.example.powerhouse.entities.Habitat;
-import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
 import org.json.JSONException;
@@ -66,18 +60,18 @@ public class LoginActivity extends AppCompatActivity {
                         JSONObject jsonResponse = new JSONObject(result);
 
                         if (jsonResponse.has("token")) {
-
                             SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("firstname", jsonResponse.getString("firstname"));
                             editor.putString("lastname", jsonResponse.getString("lastname"));
                             editor.putString("user_token", jsonResponse.getString("token"));
                             editor.putString("token_expiry", jsonResponse.getString("expired_at"));
+                            editor.putString("user_id", jsonResponse.getString("id"));
                             editor.apply();
 
                             Toast.makeText(LoginActivity.this, "Connexion réussie", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(LoginActivity.this, HabitatsActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                             startActivity(intent);
                             finish();
                         } else {

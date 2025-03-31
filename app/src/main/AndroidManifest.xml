@@ -20,6 +20,9 @@
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.PowerHouse.NoActionBar" />
         <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".MonHabitatActivity"
             android:exported="false" />
         <activity

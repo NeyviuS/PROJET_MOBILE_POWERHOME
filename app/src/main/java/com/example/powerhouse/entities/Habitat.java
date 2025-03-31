@@ -19,11 +19,11 @@ public class Habitat {
         appliances = new ArrayList<>();
     }
 
-    public Habitat(int id, int floor, double area) {
+    public Habitat(int id, int floor, double area, List<Appliance> appliances) {
         this.id = id;
         this.floor = floor;
         this.area = area;
-        appliances = new ArrayList<>();
+        this.appliances = appliances;
     }
 
     public static Habitat getFromJson(String json) {

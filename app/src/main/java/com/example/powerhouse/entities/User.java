@@ -16,7 +16,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String email, String password, String token, Date expiredAt) {
+    public User(int id, String firstName, String lastName, String email, String password, String token, Date expiredAt, Habitat habitat) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,5 +24,6 @@ public class User {
         this.password = password;
         this.token = token;
         this.expiredAt = expiredAt;
+        this.habitat = habitat;
     }
 }

@@ -56,6 +56,7 @@ public class HabitatAdapter extends BaseAdapter {
             name.setText(habitat.firstname + " " + habitat.lastname);
         nbAppliances.setText(habitat.appliances.size() + " équipements");
         floorNumber.setText(String.valueOf(habitat.floor));
+        appliances.removeAllViews();
         for (Appliance appliance : habitat.appliances) {
             ImageView i = new ImageView(context);
             i.setImageResource(appliance.getIcon());
