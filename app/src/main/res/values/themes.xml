@@ -1,10 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.PowerHouse" parent="Theme.Material3.DayNight.NoActionBar">
-       <item name="colorPrimary">
-           @color/orange
-       </item>
+        <item name="colorPrimary">
+            @color/orange
+        </item>
     </style>
 
     <style name="Theme.PowerHouse" parent="Base.Theme.PowerHouse" />
+
+    <style name="Theme.PowerHouse.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.PowerHouse.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.PowerHouse.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
