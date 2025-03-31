@@ -1,4 +1,4 @@
-package com.example.powerhouse.ui.apropos;
+package com.example.powerhouse.ui.habitat;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,18 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.powerhouse.databinding.FragmentAproposBinding;
+import com.example.powerhouse.databinding.FragmentHabitatBinding;
 
-public class AproposFragment extends Fragment {
 
-    private FragmentAproposBinding binding;
+public class HabitatFragment extends Fragment {
+
+    private FragmentHabitatBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        AproposViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(AproposViewModel.class);
+        HabitatViewModel HabitatViewModel =
+                new ViewModelProvider(this).get(HabitatViewModel.class);
 
-        binding = FragmentAproposBinding.inflate(inflater, container, false);
+        binding = FragmentHabitatBinding.inflate(inflater, container, false);
 
         return binding.getRoot();
     }
